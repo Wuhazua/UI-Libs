@@ -4,7 +4,7 @@
 
 ---
 
-Since no new UI library repositories have been made in years, I've decided to create a **fresh, centralized collection** that includes both **new and old UI libraries**. This repository aims to provide a diverse range of options for developers working with Roblox UIs.
+Since no new UI library repositories have been made in years, I've decided to create a UI Library reoi that includes both **new and old UI libraries**. I will continue to update this untill I eventually forget about it.
 
 ---
 
