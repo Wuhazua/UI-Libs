@@ -418,4 +418,8 @@ Section:SubLabel({
 # divider
 Section:Divider()
 
+# divider functions
+:Remove()
+:SetVisiblity(<boolean>)
+
 Last Updated: 19/04/2025
