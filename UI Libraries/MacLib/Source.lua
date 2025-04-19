@@ -1,5 +1,4 @@
 
-
 local MacLib = { 
 	Options = {}, 
 	Folder = "Maclib", 
