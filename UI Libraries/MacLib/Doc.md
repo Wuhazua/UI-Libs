@@ -334,4 +334,41 @@ Colorpicker.Settings
 
 ---
 
+# Dropdowns
+```lua
+sections.MainSection1:Dropdown({
+	Name = "Give Weapons",
+	Search = true,
+	Multi = true,
+	Required = false,
+	Options = {"AK-47", "M4A1", "Desert Eagle", "AWP", "MP5", "SPAS-12"},
+	Default = {"M4A1", "AWP"},
+	Callback = function(Value)
+		local Values = {}
+		for _, State in next, Value do
+			if State then
+				table.insert(Values, _)
+			end
+		end
+		print("Selected Weapons:", table.concat(Values, ", "))
+	end,
+}, "GiveWeaponsDropdown")
+```
+
+## Functions
+:UpdateName(<string>)
+:SetVisiblity(<boolean>)
+:UpdateSelection(<string or number or table>) -- string/number for single, table for multi
+:InsertOptions(<table>)
+:RemoveOptions(<table>)
+:IsOption(<string>: boolean)
+:GetOptions(: table) -- Returns a table of every option and if it's true or false (Example: {"Option 1" = true, "Option 2" = false, "Option 3" = false} etc..)
+:ClearOptions()
+
+.Value : string or table
+.IgnoreConfig <boolean>
+.Settings : table -- Not everything may be updated, but Callback should be correct.
+
+## 
+
 Last Updated: 19/04/2025
