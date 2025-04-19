@@ -12,4 +12,4 @@ Since no new UI library repositories have been created in years, I've decided to
 ---
 
 ## Additional Info
-All sources are listed so you can modify them if needed, or still access them even if they get removed.
+All sources are listed so you can modify them if you want, or still access them even if they get removed.
