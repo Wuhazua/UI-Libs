@@ -1,4 +1,4 @@
-g
+
 local MacLib = { 
 	Options = {}, 
 	Folder = "Maclib", 
