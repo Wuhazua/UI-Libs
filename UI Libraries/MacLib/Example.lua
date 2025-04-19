@@ -6,7 +6,7 @@
 local MacLib = loadstring(game:HttpGet("https://github.com/biggaboy212/Maclib/releases/latest/download/maclib.txt"))()
 
 local Window = MacLib:Window({
-	Title = "MacLib 6.1.0",
+	Title = "Karpiware 6.1.0",
 	Subtitle = "Build - Paid (Stable) | Universal",
 	Size = UDim2.fromOffset(868, 652),
 	DragStyle = 1,
