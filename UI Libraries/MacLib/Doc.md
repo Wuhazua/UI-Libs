@@ -11,24 +11,24 @@ local MacLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wuhazu
 ```lua
 MacLib:Demo() -- Brings up a demo window
 
-MacLib:SetFolder("FolderName") 
--- Sets the folder all configs are saved in.
+MacLib:SetFolder("FolderName")
+-- Sets the folder where all configs are saved.
 
-MacLib:SaveConfig("ConfigName.json") 
--- Saves all element values to a file in the folder you set with :SetFolder().
--- You can ignore elements by setting their .IgnoreConfig to true or not defining a flag.
+MacLib:SaveConfig("ConfigName.json")
+-- Saves all element values to a file.
+-- You can ignore elements with .IgnoreConfig = true or no flag.
 
-MacLib:LoadConfig("ConfigName.json") 
--- Loads a config located at the given path.
+MacLib:LoadConfig("ConfigName.json")
+-- Loads a config from the specified file.
 
-local list = MacLib:RefreshConfigList() 
--- Returns a table of all saved config names (e.g., {"Legit.json", "Rage.json"})
+local list = MacLib:RefreshConfigList()
+-- Returns a table of saved config names, e.g. {"Legit.json", "Rage.json"}
 
-MacLib:LoadAutoLoadConfig() 
--- Loads the config the user selected to automatically load.
+MacLib:LoadAutoLoadConfig()
+-- Loads the selected auto-load config.
 ```
 
-> 💡 To insert a pre-made config section, reference the "Adding Tabs" section.
+> 💡 To insert a pre-made config section, see the "Adding Tabs" section.
 
 ---
 
@@ -73,6 +73,15 @@ Window:Notify({
 })
 ```
 
+### Notification Functions
+
+```lua
+Notification:UpdateTitle("New Title")
+Notification:UpdateDescription("Updated description.")
+Notification:Resize(400) -- Only X; Y is auto-determined
+Notification:Cancel()
+```
+
 ---
 
 ## Creating a Dialog
@@ -95,6 +104,14 @@ Window:Dialog({
 })
 ```
 
+### Dialog Functions
+
+```lua
+Dialog:UpdateTitle("New Title")
+Dialog:UpdateDescription("New description.")
+Dialog:Cancel()
+```
+
 ---
 
 ## Creating a Tab Group
@@ -110,8 +127,15 @@ local TabGroup = Window:TabGroup()
 ```lua
 local Tab = TabGroup:Tab({
     Name = "Main",
-    Image = "rbxassetid://1234567890" -- Max size: 16x16 pixels
+    Image = "rbxassetid://1234567890" -- Max 16x16 pixels
 })
+```
+
+### Tab Functions
+
+```lua
+Tab:Select()
+Tab:InsertConfigSection("Left") -- or "Right"
 ```
 
 ---
@@ -143,7 +167,7 @@ local Button = Section:Button({
 Button:UpdateName("New Name")
 Button:SetVisiblity(true)
 
-Button.Settings -- table (Callback should always be up-to-date)
+Button.Settings -- table (includes Callback)
 ```
 
 ---
@@ -166,11 +190,11 @@ local Input = Section:Input({
 ```lua
 Input:UpdateName("New Name")
 Input:SetVisiblity(true)
-Input:GetInput() -- returns current text
+Input:GetInput() -- Returns current text
 Input:UpdatePlaceholder("Enter Name")
 Input:UpdateText("SomeText")
 
-Input.Text -- current text value
+Input.Text -- Current text value
 Input.IgnoreConfig = true
-Input.Settings -- table (Callback should always be up-to-date)
+Input.Settings -- table (includes Callback)
 ```
