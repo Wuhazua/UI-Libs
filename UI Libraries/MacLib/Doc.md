@@ -19,7 +19,7 @@ MacLib:SaveConfig("ConfigName.json")
 -- You can ignore elements by setting their .IgnoreConfig to true or not defining a flag.
 
 MacLib:LoadConfig("ConfigName.json") 
--- Loads a config located at path.
+-- Loads a config located at the given path.
 
 local list = MacLib:RefreshConfigList() 
 -- Returns a table of all saved config names (e.g., {"Legit.json", "Rage.json"})
@@ -112,4 +112,65 @@ local Tab = TabGroup:Tab({
     Name = "Main",
     Image = "rbxassetid://1234567890" -- Max size: 16x16 pixels
 })
+```
+
+---
+
+## Adding Sections
+
+```lua
+local Section = Tab:Section({
+    Side = "Left" -- or "Right"
+})
+```
+
+---
+
+## Adding Buttons
+
+```lua
+local Button = Section:Button({
+    Name = "Kill All",
+    Callback = function()
+        print("Killed everyone.")
+    end,
+})
+```
+
+### Button Functions
+
+```lua
+Button:UpdateName("New Name")
+Button:SetVisiblity(true)
+
+Button.Settings -- table (Callback should always be up-to-date)
+```
+
+---
+
+## Adding Inputs
+
+```lua
+local Input = Section:Input({
+    Name = "Target",
+    Placeholder = "Username",
+    AcceptedCharacters = "All",
+    Callback = function(input)
+        print("Target set: " .. input)
+    end,
+}, "TargetInput")
+```
+
+### Input Functions
+
+```lua
+Input:UpdateName("New Name")
+Input:SetVisiblity(true)
+Input:GetInput() -- returns current text
+Input:UpdatePlaceholder("Enter Name")
+Input:UpdateText("SomeText")
+
+Input.Text -- current text value
+Input.IgnoreConfig = true
+Input.Settings -- table (Callback should always be up-to-date)
 ```
