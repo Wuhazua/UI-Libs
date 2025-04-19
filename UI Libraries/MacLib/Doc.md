@@ -369,6 +369,53 @@ sections.MainSection1:Dropdown({
 .IgnoreConfig <boolean>
 .Settings : table -- Not everything may be updated, but Callback should be correct.
 
-## 
+## Creating a header
+Section:Header({
+  Text <string>
+}, <string or nil> Flag)
+
+## functions
+:UpdateName(<string>)
+:SetVisiblity(<boolean>)
+
+.Settings : table -- Not everything may be updated, but Callback should be correct.
+
+## creating a paragrahp
+Section:Paragraph({
+  Header <string>
+  Body <string>
+}, <string or nil> Flag)
+
+## functions
+:SetVisiblity(<boolean>)
+:UpdateHeader(<string>)
+:UpdateBody(<string>)
+
+.Settings : table -- Not everything may be updated, but Callback should be correct.
+
+## creating a label
+Section:Label({
+  Text <string>
+}, <string or nil> Flag)
+
+## functions
+:UpdateName(<string>)
+:SetVisiblity(<boolean>)
+
+.Settings : table -- Not everything may be updated, but Callback should be correct.
+
+## creating a sub label
+Section:SubLabel({
+  Text <string>
+}, <string or nil> Flag)
+
+# functions
+:UpdateName(<string>)
+:SetVisiblity(<boolean>)
+
+.Settings : table -- Not everything may be updated, but Callback should be correct.
+
+# divider
+Section:Divider()
 
 Last Updated: 19/04/2025
