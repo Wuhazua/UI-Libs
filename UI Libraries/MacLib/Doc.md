@@ -422,4 +422,11 @@ Section:Divider()
 :Remove()
 :SetVisiblity(<boolean>)
 
+# creating a spacer
+Section:Spacer()
+
+# functions 
+:Remove()
+:SetVisiblity(<boolean>)
+
 Last Updated: 19/04/2025
