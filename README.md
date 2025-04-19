@@ -1,7 +1,7 @@
 # UI-Libs
 
 A collection of both modern and legacy Roblox UI libraries.  
-This repository was created due to the lack of actively maintained UI library hubs. I’ll keep this updated for as long as I can—until I inevitably forget about it.
+This repository was created due to the lack of actively maintained UI library hubs. I’ll keep this updated for as long as I can until I eventually just forget about it.
 
 ---
 
