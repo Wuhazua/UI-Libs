@@ -1,5 +1,4 @@
-Ah, I see what you mean! Here’s the full script documentation formatted in GitHub markdown syntax for you to easily copy and paste:
-
+## LinoriaLib Documentation
 
 ```lua
 local repo = 'https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/'
