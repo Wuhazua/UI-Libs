@@ -14,20 +14,10 @@ local MacLib = loadstring(game:HttpGet("https://github.com/biggaboy212/Maclib/re
 MacLib:Demo() -- Brings up a demo window
 
 MacLib:SetFolder("FolderName")
--- Sets the folder where all configs are saved.
-
 MacLib:SaveConfig("ConfigName.json")
--- Saves all element values to a file.
--- Ignore elements with .IgnoreConfig = true or no flag.
-
 MacLib:LoadConfig("ConfigName.json")
--- Loads a config from the specified file.
-
 local list = MacLib:RefreshConfigList()
--- Returns a table of saved config names, e.g. {"Legit.json", "Rage.json"}
-
 MacLib:LoadAutoLoadConfig()
--- Loads the selected auto-load config.
 ```
 
 ---
@@ -127,7 +117,7 @@ local TabGroup = Window:TabGroup()
 ```lua
 local Tab = TabGroup:Tab({
     Name = "Main",
-    Image = "rbxassetid://1234567890" -- Max 16x16 pixels
+    Image = "rbxassetid://1234567890"
 })
 ```
 
@@ -144,7 +134,7 @@ Tab:InsertConfigSection("Left") -- or "Right"
 
 ```lua
 local Section = Tab:Section({
-    Side = "Left" -- or "Right"
+    Side = "Left"
 })
 ```
 
@@ -166,7 +156,7 @@ local Button = Section:Button({
 ```lua
 Button:UpdateName("New Name")
 Button:SetVisiblity(true)
-Button.Settings -- table (includes Callback)
+Button.Settings
 ```
 
 ---
@@ -195,7 +185,7 @@ Input:UpdateText("SomeText")
 
 Input.Text
 Input.IgnoreConfig = true
-Input.Settings -- table (includes Callback)
+Input.Settings
 ```
 
 ---
@@ -334,99 +324,153 @@ Colorpicker.Settings
 
 ---
 
-# Dropdowns
+## Dropdowns
+
 ```lua
 sections.MainSection1:Dropdown({
-	Name = "Give Weapons",
-	Search = true,
-	Multi = true,
-	Required = false,
-	Options = {"AK-47", "M4A1", "Desert Eagle", "AWP", "MP5", "SPAS-12"},
-	Default = {"M4A1", "AWP"},
-	Callback = function(Value)
-		local Values = {}
-		for _, State in next, Value do
-			if State then
-				table.insert(Values, _)
-			end
-		end
-		print("Selected Weapons:", table.concat(Values, ", "))
-	end,
+    Name = "Give Weapons",
+    Search = true,
+    Multi = true,
+    Required = false,
+    Options = {"AK-47", "M4A1", "Desert Eagle", "AWP", "MP5", "SPAS-12"},
+    Default = {"M4A1", "AWP"},
+    Callback = function(Value)
+        local Values = {}
+        for _, State in next, Value do
+            if State then
+                table.insert(Values, _)
+            end
+        end
+        print("Selected Weapons:", table.concat(Values, ", "))
+    end,
 }, "GiveWeaponsDropdown")
 ```
 
-## Functions
-:UpdateName(<string>)
-:SetVisiblity(<boolean>)
-:UpdateSelection(<string or number or table>) -- string/number for single, table for multi
-:InsertOptions(<table>)
-:RemoveOptions(<table>)
-:IsOption(<string>: boolean)
-:GetOptions(: table) -- Returns a table of every option and if it's true or false (Example: {"Option 1" = true, "Option 2" = false, "Option 3" = false} etc..)
-:ClearOptions()
+### Dropdown Functions
 
-.Value : string or table
-.IgnoreConfig <boolean>
-.Settings : table -- Not everything may be updated, but Callback should be correct.
+```lua
+Dropdown:UpdateName("New Name")
+Dropdown:SetVisiblity(true)
+Dropdown:UpdateSelection("AK-47") -- or table for multi
+Dropdown:InsertOptions({"SCAR", "Glock"})
+Dropdown:RemoveOptions({"AWP"})
+Dropdown:IsOption("M4A1")
+Dropdown:GetOptions()
+Dropdown:ClearOptions()
 
-## Creating a header
+Dropdown.Value
+Dropdown.IgnoreConfig = true
+Dropdown.Settings
+```
+
+---
+
+## Header
+
+```lua
 Section:Header({
-  Text <string>
-}, <string or nil> Flag)
+    Text = "Main Settings"
+}, "HeaderFlag")
+```
 
-## functions
-:UpdateName(<string>)
-:SetVisiblity(<boolean>)
+### Header Functions
 
-.Settings : table -- Not everything may be updated, but Callback should be correct.
+```lua
+Header:UpdateName("New Name")
+Header:SetVisiblity(true)
 
-## creating a paragrahp
+Header.Settings
+```
+
+---
+
+## Paragraph
+
+```lua
 Section:Paragraph({
-  Header <string>
-  Body <string>
-}, <string or nil> Flag)
+    Header = "Warning",
+    Body = "Modifying these settings can impact gameplay."
+}, "ParagraphFlag")
+```
 
-## functions
-:SetVisiblity(<boolean>)
-:UpdateHeader(<string>)
-:UpdateBody(<string>)
+### Paragraph Functions
 
-.Settings : table -- Not everything may be updated, but Callback should be correct.
+```lua
+Paragraph:SetVisiblity(true)
+Paragraph:UpdateHeader("New Header")
+Paragraph:UpdateBody("Updated Body")
 
-## creating a label
+Paragraph.Settings
+```
+
+---
+
+## Label
+
+```lua
 Section:Label({
-  Text <string>
-}, <string or nil> Flag)
+    Text = "This is a label"
+}, "LabelFlag")
+```
 
-## functions
-:UpdateName(<string>)
-:SetVisiblity(<boolean>)
+### Label Functions
 
-.Settings : table -- Not everything may be updated, but Callback should be correct.
+```lua
+Label:UpdateName("Updated Label")
+Label:SetVisiblity(true)
 
-## creating a sub label
+Label.Settings
+```
+
+---
+
+## SubLabel
+
+```lua
 Section:SubLabel({
-  Text <string>
-}, <string or nil> Flag)
+    Text = "This is a sublabel"
+}, "SubLabelFlag")
+```
 
-# functions
-:UpdateName(<string>)
-:SetVisiblity(<boolean>)
+### SubLabel Functions
 
-.Settings : table -- Not everything may be updated, but Callback should be correct.
+```lua
+SubLabel:UpdateName("Updated SubLabel")
+SubLabel:SetVisiblity(true)
 
-# divider
+SubLabel.Settings
+```
+
+---
+
+## Divider
+
+```lua
 Section:Divider()
+```
 
-# divider functions
-:Remove()
-:SetVisiblity(<boolean>)
+### Divider Functions
 
-# creating a spacer
+```lua
+Divider:Remove()
+Divider:SetVisiblity(true)
+```
+
+---
+
+## Spacer
+
+```lua
 Section:Spacer()
+```
 
-# functions 
-:Remove()
-:SetVisiblity(<boolean>)
+### Spacer Functions
 
-Last Updated: 19/04/2025
+```lua
+Spacer:Remove()
+Spacer:SetVisiblity(true)
+```
+
+---
+
+**Last Updated: 19/04/2025**
