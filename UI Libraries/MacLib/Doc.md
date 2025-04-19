@@ -300,4 +300,4 @@ Keybind.Settings
 
 ---
 
-> Maintained by [Wuhazua](https://github.com/Wuhazua)
+> Last Updated: 19/04/2025
