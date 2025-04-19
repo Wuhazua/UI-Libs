@@ -30,8 +30,6 @@ MacLib:LoadAutoLoadConfig()
 -- Loads the selected auto-load config.
 ```
 
-> 💡 To insert a pre-made config section, see the "Adding Tabs" section.
-
 ---
 
 ## Creating a Window
@@ -300,4 +298,40 @@ Keybind.Settings
 
 ---
 
-> Last Updated: 19/04/2025
+## Colorpicker
+
+```lua
+sections.MainSection1:Colorpicker({
+    Name = "ESP Color",
+    Default = Color3.fromRGB(255,0,0),
+    Alpha = 0,
+    Callback = function(color, alpha)
+        local r, g, b = math.round(color.R * 255), math.round(color.G * 255), math.round(color.B * 255)
+        local formattedColor = string.format("%d, %d, %d", r, g, b)
+
+        Window:Notify({
+            Title = "Kuzu Hub",
+            Description = string.format("Changed ESP Color\nColor: %s\nAlpha: %.2f", formattedColor, alpha),
+            Lifetime = 3
+        })
+    end,
+}, "ESPColorToggle")
+```
+
+### Colorpicker Functions
+
+```lua
+Colorpicker:UpdateName("New Name")
+Colorpicker:SetVisibility(true)
+Colorpicker:SetColor(Color3.new(1, 0, 0))
+Colorpicker:SetAlpha(0.5)
+
+Colorpicker.Color
+Colorpicker.Alpha
+Colorpicker.IgnoreConfig = true
+Colorpicker.Settings
+```
+
+---
+
+Last Updated: 19/04/2025
