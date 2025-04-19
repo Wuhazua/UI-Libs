@@ -1,4 +1,6 @@
-## MacLib Loader
+# MacLib Documentation
+
+## Loader
 
 ```lua
 local MacLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wuhazua/UI-Libs/main/UI%20Libraries/MacLib/Source"))()
@@ -6,7 +8,7 @@ local MacLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wuhazu
 
 ---
 
-## Functions
+## Core Functions
 
 ```lua
 MacLib:Demo() -- Brings up a demo window
@@ -16,7 +18,7 @@ MacLib:SetFolder("FolderName")
 
 MacLib:SaveConfig("ConfigName.json")
 -- Saves all element values to a file.
--- You can ignore elements with .IgnoreConfig = true or no flag.
+-- Ignore elements with .IgnoreConfig = true or no flag.
 
 MacLib:LoadConfig("ConfigName.json")
 -- Loads a config from the specified file.
@@ -49,7 +51,7 @@ local Window = MacLib:Window({
 
 ---
 
-## Adding a Global Setting
+## Global Setting
 
 ```lua
 local Global_Setting = Window:GlobalSetting({
@@ -63,7 +65,7 @@ local Global_Setting = Window:GlobalSetting({
 
 ---
 
-## Displaying a Notification
+## Notification
 
 ```lua
 Window:Notify({
@@ -78,13 +80,13 @@ Window:Notify({
 ```lua
 Notification:UpdateTitle("New Title")
 Notification:UpdateDescription("Updated description.")
-Notification:Resize(400) -- Only X; Y is auto-determined
+Notification:Resize(400)
 Notification:Cancel()
 ```
 
 ---
 
-## Creating a Dialog
+## Dialog
 
 ```lua
 Window:Dialog({
@@ -114,7 +116,7 @@ Dialog:Cancel()
 
 ---
 
-## Creating a Tab Group
+## Tab Group
 
 ```lua
 local TabGroup = Window:TabGroup()
@@ -122,7 +124,7 @@ local TabGroup = Window:TabGroup()
 
 ---
 
-## Adding Tabs
+## Tabs
 
 ```lua
 local Tab = TabGroup:Tab({
@@ -140,7 +142,7 @@ Tab:InsertConfigSection("Left") -- or "Right"
 
 ---
 
-## Adding Sections
+## Sections
 
 ```lua
 local Section = Tab:Section({
@@ -150,7 +152,7 @@ local Section = Tab:Section({
 
 ---
 
-## Adding Buttons
+## Buttons
 
 ```lua
 local Button = Section:Button({
@@ -166,13 +168,12 @@ local Button = Section:Button({
 ```lua
 Button:UpdateName("New Name")
 Button:SetVisiblity(true)
-
 Button.Settings -- table (includes Callback)
 ```
 
 ---
 
-## Adding Inputs
+## Inputs
 
 ```lua
 local Input = Section:Input({
@@ -190,76 +191,113 @@ local Input = Section:Input({
 ```lua
 Input:UpdateName("New Name")
 Input:SetVisiblity(true)
-Input:GetInput() -- Returns current text
+Input:GetInput()
 Input:UpdatePlaceholder("Enter Name")
 Input:UpdateText("SomeText")
 
-Input.Text -- Current text value
+Input.Text
 Input.IgnoreConfig = true
 Input.Settings -- table (includes Callback)
 ```
 
-## Adding Sliders
+---
+
+## Sliders
+
+```lua
 sections.MainSection1:Slider({
-	Name = "Walkspeed",
-	Default = 16,
-	Minimum = 0,
-	Maximum = 100,
-	DisplayMethod = "Percent",
-	Callback = function(Value)
-		print("Changed to ".. Value)
-	end,
+    Name = "Walkspeed",
+    Default = 16,
+    Minimum = 0,
+    Maximum = 100,
+    DisplayMethod = "Percent",
+    Callback = function(Value)
+        print("Changed to ".. Value)
+    end,
 }, "WalkspeedSlider")
+```
 
-## Funtions
-:UpdateName(<string>)
-:SetVisiblity(<boolean>)
-:UpdateValue(<number>)
-:GetValue(: number)
+### Slider Functions
 
-.Value : number
-.IgnoreConfig <boolean>
-.Settings : table -- Not everything may be updated, but Callback should be correct.
+```lua
+Slider:UpdateName("New Name")
+Slider:SetVisiblity(true)
+Slider:UpdateValue(50)
+Slider:GetValue()
 
-## Adding Toggles
+Slider.Value
+Slider.IgnoreConfig = true
+Slider.Settings
+```
+
+---
+
+## Toggles
+
+```lua
 sections.MainSection1:Toggle({
-	Name = "Flight",
-	Default = false,
-	Callback = function(value)
-		Window:Notify({
-			Title = "Kuzu Hub",
-			Description = (value and "Enabled " or "Disabled ") .. "Flight"
-		})
-	end,
+    Name = "Flight",
+    Default = false,
+    Callback = function(value)
+        Window:Notify({
+            Title = "Kuzu Hub",
+            Description = (value and "Enabled " or "Disabled ") .. "Flight"
+        })
+    end,
 }, "FlightToggle")
+```
 
-## Functions
-:UpdateName(<string>)
-:SetVisiblity(<boolean>)
-:UpdateState(<boolean>)
-:GetState(: boolean)
+### Toggle Functions
 
-.State : boolean
-.IgnoreConfig <boolean>
-.Settings : table -- Not everything may be updated, but Callback should be correct.
+```lua
+Toggle:UpdateName("New Name")
+Toggle:SetVisiblity(true)
+Toggle:UpdateState(true)
+Toggle:GetState()
 
-## Adding Keybinds
+Toggle.State
+Toggle.IgnoreConfig = true
+Toggle.Settings
+```
+
+---
+
+## Keybinds
+
+```lua
 sections.MainSection1:Keybind({
-	Name = "Reset Inventory",
-	Callback = function(binded)
-		Window:Notify({
-			Title = "Kuzu Hub",
-			Description = "Successfully Reset Inventory",
-			Lifetime = 3
-		})
-	end,
-	onBinded = function(bind)
-		Window:Notify({
-			Title = "Kuzu Hub",
-			Description = "Rebinded Reset Inventory to "..tostring(bind.Name),
-			Lifetime = 3
-		})
-	end,
+    Name = "Reset Inventory",
+    Callback = function(binded)
+        Window:Notify({
+            Title = "Kuzu Hub",
+            Description = "Successfully Reset Inventory",
+            Lifetime = 3
+        })
+    end,
+    onBinded = function(bind)
+        Window:Notify({
+            Title = "Kuzu Hub",
+            Description = "Rebinded Reset Inventory to "..tostring(bind.Name),
+            Lifetime = 3
+        })
+    end,
 }, "ResetInventoryBind")
+```
 
+### Keybind Functions
 
+```lua
+Keybind:UpdateName("New Name")
+Keybind:SetVisiblity(true)
+Keybind:Unbind()
+Keybind:Bind(Enum.KeyCode.X)
+Keybind:GetBind()
+
+Keybind.Bind
+Keybind.IgnoreConfig = true
+Keybind.Settings
+```
+
+---
+
+> Maintained by [Wuhazua](https://github.com/Wuhazua)
