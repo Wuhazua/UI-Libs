@@ -1,22 +1,39 @@
 ## MacLib Loader
 
 ```lua
-local MacLib = loadstring(game:HttpGet("https://github.com/biggaboy212/Maclib/releases/latest/download/maclib.txt"))()
+local MacLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wuhazua/UI-Libs/main/UI%20Libraries/MacLib/Source"))()
 ```
+
+---
 
 ## Functions
-```lua
-:Demo() -- Brings up a demo window
 
-:SetFolder(<string> Folder) -- Sets the folder all configs are saved in.
-:SaveConfig(<string> Path) -- Saves all element values to a file in the folder you set with :SetFolder(), you can ignore certain elements by setting their .IgnoreConfig to true, or simply not defining a flag.
-:LoadConfig(<string> Path) -- Loads a config located at path.
-:RefreshConfigList(: table) -- Returns a table of all saved config names ( eg. {"Legit.json", "Rage.json"} )
-:LoadAutoLoadConfig() -- Loads the config the user selected to automatically load.
---// To insert a pre-made config section, reference the "Adding tabs" page.
+```lua
+MacLib:Demo() -- Brings up a demo window
+
+MacLib:SetFolder("FolderName") 
+-- Sets the folder all configs are saved in.
+
+MacLib:SaveConfig("ConfigName.json") 
+-- Saves all element values to a file in the folder you set with :SetFolder().
+-- You can ignore elements by setting their .IgnoreConfig to true or not defining a flag.
+
+MacLib:LoadConfig("ConfigName.json") 
+-- Loads a config located at path.
+
+local list = MacLib:RefreshConfigList() 
+-- Returns a table of all saved config names (e.g., {"Legit.json", "Rage.json"})
+
+MacLib:LoadAutoLoadConfig() 
+-- Loads the config the user selected to automatically load.
 ```
 
-# Creating a Window
+> 💡 To insert a pre-made config section, reference the "Adding Tabs" section.
+
+---
+
+## Creating a Window
+
 ```lua
 local Window = MacLib:Window({
     Title = "Kuzu Hub",
@@ -30,7 +47,10 @@ local Window = MacLib:Window({
 })
 ```
 
-# Adding a Global Setting
+---
+
+## Adding a Global Setting
+
 ```lua
 local Global_Setting = Window:GlobalSetting({
     Name = "Moderator Join Alerts",
@@ -41,7 +61,10 @@ local Global_Setting = Window:GlobalSetting({
 })
 ```
 
-# Displaying a Notification
+---
+
+## Displaying a Notification
+
 ```lua
 Window:Notify({
     Title = "Kuzu Hub",
@@ -50,4 +73,43 @@ Window:Notify({
 })
 ```
 
+---
 
+## Creating a Dialog
+
+```lua
+Window:Dialog({
+    Title = "Kuzu Hub",
+    Description = "Are you sure? This is not reversible and can get you banned in up-to-date servers.",
+    Buttons = {
+        {
+            Name = "Confirm",
+            Callback = function()
+                print("Confirmed!")
+            end,
+        },
+        {
+            Name = "Cancel"
+        }
+    }
+})
+```
+
+---
+
+## Creating a Tab Group
+
+```lua
+local TabGroup = Window:TabGroup()
+```
+
+---
+
+## Adding Tabs
+
+```lua
+local Tab = TabGroup:Tab({
+    Name = "Main",
+    Image = "rbxassetid://1234567890" -- Max size: 16x16 pixels
+})
+```
