@@ -1,8 +1,3 @@
---[[
-  Interface test demo for use in Maclib product showcase / screenshots.
-  Simply a showcase, this contains no game altering code besides the interface itself.
-]]
-
 local MacLib = loadstring(game:HttpGet("https://github.com/biggaboy212/Maclib/releases/latest/download/maclib.txt"))()
 
 local Window = MacLib:Window({
