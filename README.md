@@ -1,2 +1,15 @@
 # UI-Libs
-This is a collection of roblox UI libraries. Since no new UI library repos have been made in years, I decided to create a new one that includes both new and old UI libraries. Feel free to reach out to me on Discord if you want a UI library added here.
+
+### A collection of Roblox UI libraries.
+
+---
+
+Since no new UI library repositories have been made in years, I've decided to create a **fresh, centralized collection** that includes both **new and old UI libraries**. This repository aims to provide a diverse range of options for developers working with Roblox UIs.
+
+---
+
+### Want to add a UI library?
+
+Feel free to **reach out to me on Discord** if you have a UI library you'd like to see included here.
+
+---
