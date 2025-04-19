@@ -3,7 +3,7 @@
 ## Loader
 
 ```lua
-local MacLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wuhazua/UI-Libs/main/UI%20Libraries/MacLib/Source"))()
+local MacLib = loadstring(game:HttpGet("https://github.com/biggaboy212/Maclib/releases/latest/download/maclib.txt"))()
 ```
 
 ---
