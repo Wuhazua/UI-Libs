@@ -198,3 +198,68 @@ Input.Text -- Current text value
 Input.IgnoreConfig = true
 Input.Settings -- table (includes Callback)
 ```
+
+## Adding Sliders
+sections.MainSection1:Slider({
+	Name = "Walkspeed",
+	Default = 16,
+	Minimum = 0,
+	Maximum = 100,
+	DisplayMethod = "Percent",
+	Callback = function(Value)
+		print("Changed to ".. Value)
+	end,
+}, "WalkspeedSlider")
+
+## Funtions
+:UpdateName(<string>)
+:SetVisiblity(<boolean>)
+:UpdateValue(<number>)
+:GetValue(: number)
+
+.Value : number
+.IgnoreConfig <boolean>
+.Settings : table -- Not everything may be updated, but Callback should be correct.
+
+## Adding Toggles
+sections.MainSection1:Toggle({
+	Name = "Flight",
+	Default = false,
+	Callback = function(value)
+		Window:Notify({
+			Title = "Kuzu Hub",
+			Description = (value and "Enabled " or "Disabled ") .. "Flight"
+		})
+	end,
+}, "FlightToggle")
+
+## Functions
+:UpdateName(<string>)
+:SetVisiblity(<boolean>)
+:UpdateState(<boolean>)
+:GetState(: boolean)
+
+.State : boolean
+.IgnoreConfig <boolean>
+.Settings : table -- Not everything may be updated, but Callback should be correct.
+
+## Adding Keybinds
+sections.MainSection1:Keybind({
+	Name = "Reset Inventory",
+	Callback = function(binded)
+		Window:Notify({
+			Title = "Kuzu Hub",
+			Description = "Successfully Reset Inventory",
+			Lifetime = 3
+		})
+	end,
+	onBinded = function(bind)
+		Window:Notify({
+			Title = "Kuzu Hub",
+			Description = "Rebinded Reset Inventory to "..tostring(bind.Name),
+			Lifetime = 3
+		})
+	end,
+}, "ResetInventoryBind")
+
+
